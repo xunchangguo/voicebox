@@ -35,6 +35,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # 关键：拉取用户输入的 tag 代码
+          ref: ${{ github.event.inputs.tag }}
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
